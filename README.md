@@ -1,1 +1,1 @@
-# kubeflow
+# kubeflow profile creation with kustomize
