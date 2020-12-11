@@ -12,7 +12,7 @@ vars:
 - name: PROFILE_NAMESPACE
   objref:
     kind: ConfigMap
-    name: profile-meta
+    name: profile-contributor
     apiVersion: v1
   fieldref:
     fieldpath: data.PROFILE_NAMESPACE
