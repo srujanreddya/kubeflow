@@ -1,0 +1,36 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- pvc.yaml
+
+configMapGenerator:
+- name: sa-profile-pvc
+  env: params.env
+
+vars:
+- name: SA_TEAM_NAME
+  objref:
+    kind: ConfigMap
+    name: sa-profile-pvc
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.SA_TEAM_NAME
+
+- name: SA_PROFILE_NAMESPACE
+  objref:
+    kind: ConfigMap
+    name: sa-profile-pvc
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.SA_PROFILE_NAMESPACE
+
+- name: STORAGE
+  objref:
+    kind: ConfigMap
+    name: sa-profile-pvc
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.STORAGE
+
+configurations:
+- params.yaml

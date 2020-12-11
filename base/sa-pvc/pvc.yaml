@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: $(SA_TEAM_NAME)
+  namespace: $(SA_PROFILE_NAMESPACE)
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: $(STORAGE)

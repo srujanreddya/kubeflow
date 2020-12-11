@@ -1,0 +1,15 @@
+varReference:
+- kind: Profile
+  path: metadata/name
+- kind: Profile  
+  path: spec/owner/name
+- kind: Profile
+  path: spec/resourceQuotaSpec/hard/cpu
+- kind: Profile
+  path: spec/resourceQuotaSpec/hard/memory
+- kind: Profile
+  path: spec/resourceQuotaSpec/hard/nvidia.com\/gpu
+- kind: Profile
+  path: spec/resourceQuotaSpec/hard/persistentvolumeclaims
+- kind: Profile
+  path: spec/resourceQuotaSpec/hard/requests.storage

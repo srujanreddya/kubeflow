@@ -1,0 +1,70 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- profile.yaml
+
+configMapGenerator:
+- name: profile-meta
+  env: params.env
+
+vars:
+- name: PROFILE_NAMESPACE
+  objref:
+    kind: ConfigMap
+    name: profile-meta
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.PROFILE_NAMESPACE
+
+- name: PROFILE_USER
+  objref:
+    kind: ConfigMap
+    name: profile-meta
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.PROFILE_USER
+
+- name: CPU
+  objref:
+    kind: ConfigMap
+    name: profile-meta
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.CPU
+
+- name: MEMORY
+  objref:
+    kind: ConfigMap
+    name: profile-meta
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.MEMORY
+
+- name: GPU_COUNT
+  objref:
+    kind: ConfigMap
+    name: profile-meta
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.GPU_COUNT
+
+
+- name: PV_CLAIM_COUNT
+  objref:
+    kind: ConfigMap
+    name: profile-meta
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.PV_CLAIM_COUNT
+
+
+- name: PV_STORAGE
+  objref:
+    kind: ConfigMap
+    name: profile-meta
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.PV_STORAGE
+
+configurations:
+- params.yaml
