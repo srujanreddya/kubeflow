@@ -1,0 +1,19 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  annotations:
+    role: edit
+    user: $(PROFILE_USER)   # replace with the email of the user from your Active Directory case sensitive
+  name: user-$(PROFILE_USER)-clusterrole-edit
+  # Ex: if the user email is lalith.vaka@kp.org the name should be user-lalith-vaka-kp-org-clusterrole-edit
+  # Note: if the user email is Lalith.Vaka@kp.org from your Active Directory, the name should be user-lalith-vaka-kp-org-clusterrole-edit
+  namespace: $(PROFILE_NAMESPACE) 
+# replace with the namespace/profile name that you are adding contribbitors to
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: kubeflow-edit
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: $(PROFILE_USER)   # replace with the email of the user from your Active Directory case sensitive

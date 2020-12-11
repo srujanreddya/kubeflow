@@ -1,0 +1,18 @@
+varReference:
+- kind: RoleBinding
+  path: metadata/annotations/user
+- kind: RoleBinding
+  path: metadata/name
+- kind: RoleBinding
+  path: metadata/namespace
+- kind: RoleBinding
+  path: subjects/name
+
+- kind: ServiceRoleBinding
+  path: metadata/annotations/user
+- kind: ServiceRoleBinding
+  path: metadata/name
+- kind: ServiceRoleBinding
+  path: metadata/namespace
+- kind: ServiceRoleBinding
+  path: spec/subjects/properties/request.headers[kubeflow-userid]
