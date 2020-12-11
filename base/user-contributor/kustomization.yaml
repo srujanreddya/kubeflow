@@ -5,7 +5,7 @@ resources:
 - servicerolebinding.yaml
 
 configMapGenerator:
-- name: profile-meta
+- name: profile-contributor
   env: params.env
 
 vars:
@@ -20,7 +20,7 @@ vars:
 - name: PROFILE_USER
   objref:
     kind: ConfigMap
-    name: profile-meta
+    name: profile-contributor
     apiVersion: v1
   fieldref:
     fieldpath: data.PROFILE_USER
