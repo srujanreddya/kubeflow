@@ -3,10 +3,26 @@
 
 Clone the `profile-kustomize` branch.
 
-# Creation of profile
+# Creation of Service account profile
 
 ```
 $ cd base/sa-profile
+$ vi params.env # Update values as per your requierment
+$ kubectl apply -k . # It will create profile & profile namespace and configmap for user.
+```
+
+# Creation of service account PVC
+
+```
+$ cd base/sa-pvc
+$ vi params.env # Update values as per your requierment
+$ kubectl apply -k . # It will create profile & profile namespace and configmap for user.
+```
+
+# Creation of User profile
+
+```
+$ cd base/user-profile
 $ vi params.env # Update values as per your requierment
 $ kubectl apply -k . # It will create profile & profile namespace and configmap for user.
 ```
